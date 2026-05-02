@@ -1,7 +1,7 @@
 # Reset-EntraEnrollment
 
 <!-- BADGES:START -->
-[![License](https://img.shields.io/github/license/5a9awneh/Reset-EntraEnrollment)](LICENSE) [![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?logo=powershell&logoColor=white)](https://learn.microsoft.com/en-us/powershell/) [![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows) [![Last Commit](https://img.shields.io/github/last-commit/5a9awneh/Reset-EntraEnrollment)](https://github.com/5a9awneh/Reset-EntraEnrollment/commits/master) [<img src="https://madebyhuman.iamjarl.com/badges/loop-white.svg" alt="Human in the Loop" height="20">](https://madebyhuman.iamjarl.com)
+[![License](https://img.shields.io/github/license/5a9awneh/Reset-EntraEnrollment)](LICENSE) [![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?logo=powershell&logoColor=white)](https://learn.microsoft.com/en-us/powershell/) [![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows) [![Last Commit](https://img.shields.io/github/last-commit/5a9awneh/Reset-EntraEnrollment)](https://github.com/5a9awneh/Reset-EntraEnrollment/commits/master) [![Human in the Loop](https://img.shields.io/badge/human--in--the--loop-%E2%9C%93-brightgreen?style=flat)](https://github.com/5a9awneh/Reset-EntraEnrollment)
 <!-- BADGES:END -->
 
 Removes stale Entra ID / Azure AD enrollment artifacts from a Windows device. Useful when a device shows as enrolled but re-enrollment fails, or when decommissioning a device that needs to be re-provisioned.
