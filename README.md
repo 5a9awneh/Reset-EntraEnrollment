@@ -1,7 +1,7 @@
 # Reset-EntraEnrollment
 
 <!-- BADGES:START -->
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat)](LICENSE) [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue?style=flat&logo=powershell)](https://learn.microsoft.com/en-us/powershell/) [![Platform](https://img.shields.io/badge/Platform-Windows-blue?style=flat&logo=windows)](https://www.microsoft.com/windows) [![Last Commit](https://img.shields.io/github/last-commit/5a9awneh/Reset-EntraEnrollment?style=flat)](https://github.com/5a9awneh/Reset-EntraEnrollment/commits) [<img src="https://madebyhuman.iamjarl.com/badges/loop-white.svg" alt="Human in the Loop" height="20">](https://madebyhuman.iamjarl.com)
+[![License](https://img.shields.io/github/license/5a9awneh/Reset-EntraEnrollment)](LICENSE) [![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?logo=powershell&logoColor=white)](https://learn.microsoft.com/en-us/powershell/) [![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows) [![Last Commit](https://img.shields.io/github/last-commit/5a9awneh/Reset-EntraEnrollment)](https://github.com/5a9awneh/Reset-EntraEnrollment/commits/master) [<img src="https://madebyhuman.iamjarl.com/badges/loop-white.svg" alt="Human in the Loop" height="20">](https://madebyhuman.iamjarl.com)
 <!-- BADGES:END -->
 
 Removes stale Entra ID / Azure AD enrollment artifacts from a Windows device. Useful when a device shows as enrolled but re-enrollment fails, or when decommissioning a device that needs to be re-provisioned.
@@ -50,9 +50,3 @@ After completion, the script prompts to restart immediately (defaults to **No** 
 - **Does not remove the device object from Entra ID** — the device record in the portal must be deleted separately via the Entra admin centre or Intune.
 - **Does not affect local accounts** — only the work/school account enrollment is removed; local user profiles are untouched.
 - **Requires an active internet connection to re-enroll** — ensure network access is available before rejoining.
-
----
-
-## 📄 License
-
-MIT © 2026 [5a9awneh](https://github.com/5a9awneh)
