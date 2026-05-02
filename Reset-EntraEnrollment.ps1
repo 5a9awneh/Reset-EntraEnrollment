@@ -21,6 +21,7 @@ Write-Host ""
 $confirm = Read-Host "Type YES to continue or press Enter to abort"
 if ($confirm -ne 'YES') {
     Write-Host "Aborted. No changes were made." -ForegroundColor Yellow
+    Read-Host "Press Enter to close"
     exit 0
 }
 
@@ -66,13 +67,13 @@ Write-Host ""
 
 # Step 1: Check current state
 Write-Host "[1/5] Checking current enrollment state..." -ForegroundColor Cyan
-$dsreg = dsregcmd /status
+dsregcmd /status
 Write-Host "Current state logged." -ForegroundColor Gray
 
 # Step 2: Leave Azure AD
 Write-Host "[2/5] Leaving Azure AD/Entra ID..." -ForegroundColor Cyan
 try {
-    $leaveResult = dsregcmd /leave 2>&1
+    dsregcmd /leave
     if ($LASTEXITCODE -eq 0) {
         Write-Host "  Successfully left." -ForegroundColor Green
     } else {
@@ -133,7 +134,7 @@ try {
         $tasks | ForEach-Object {
             try {
                 Write-Host "  Removing: $($_.TaskPath)$($_.TaskName)" -ForegroundColor Yellow
-                Unregister-ScheduledTask -TaskName $_.TaskName -Confirm:$false -ErrorAction Stop
+                $_ | Unregister-ScheduledTask -Confirm:$false -ErrorAction Stop
                 $taskRemoved++
             } catch {
                 Write-Host "  Failed to remove task: $($_.Exception.Message)" -ForegroundColor Red

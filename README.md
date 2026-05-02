@@ -21,7 +21,7 @@ Removes stale Entra ID / Azure AD enrollment artifacts from a Windows device. Us
 1. Copy the folder to the device (e.g. a USB drive or network share)
 2. Double-click **`RUN.bat`** — it will prompt for UAC elevation automatically
 3. Read the warning, type **`YES`** and press Enter to proceed
-4. Optionally allow the automatic restart at the end (5-second countdown)
+4. When prompted, press **Y** within 5 seconds to restart immediately (defaults to No)
 5. After restart, re-enroll via **Settings › Accounts › Access work or school › Connect**
 
 > A timestamped log file (`EntraCleanup_*.log`) is saved in the same folder as the script.
