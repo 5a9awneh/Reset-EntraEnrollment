@@ -46,7 +46,8 @@ function Get-UserInput {
             if ($key.KeyChar -eq 'y' -or $key.KeyChar -eq 'n') {
                 $answer = $key.KeyChar
                 break
-            } else {
+            }
+            else {
                 Write-Host "`nInvalid response. Please enter 'y' or 'n'. " -NoNewline
             }
         }
@@ -76,10 +77,12 @@ try {
     dsregcmd /leave
     if ($LASTEXITCODE -eq 0) {
         Write-Host "  Successfully left." -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "  Already left or not joined (OK to continue)." -ForegroundColor Yellow
     }
-} catch {
+}
+catch {
     Write-Host "  Warning: $($_.Exception.Message)" -ForegroundColor Yellow
 }
 
@@ -95,12 +98,14 @@ if (Test-Path $enrollPath) {
             Write-Host "  Removing: $($_.PSChildName)" -ForegroundColor Yellow
             Remove-Item -Path $_.PSPath -Recurse -Force -ErrorAction Stop
             $removed++
-        } catch {
+        }
+        catch {
             Write-Host "  Failed to remove $($_.PSChildName): $($_.Exception.Message)" -ForegroundColor Red
         }
     }
     Write-Host "  Removed $removed enrollment(s)." -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "  Path not found (already clean)." -ForegroundColor Gray
 }
 
@@ -115,12 +120,14 @@ if (Test-Path $ermPath) {
             Write-Host "  Removing: $($_.PSChildName)" -ForegroundColor Yellow
             Remove-Item -Path $_.PSPath -Recurse -Force -ErrorAction Stop
             $ermRemoved++
-        } catch {
+        }
+        catch {
             Write-Host "  Failed to remove: $($_.Exception.Message)" -ForegroundColor Red
         }
     }
     Write-Host "  Removed $ermRemoved item(s)." -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "  Path not found (already clean)." -ForegroundColor Gray
 }
 
@@ -136,15 +143,18 @@ try {
                 Write-Host "  Removing: $($_.TaskPath)$($_.TaskName)" -ForegroundColor Yellow
                 $_ | Unregister-ScheduledTask -Confirm:$false -ErrorAction Stop
                 $taskRemoved++
-            } catch {
+            }
+            catch {
                 Write-Host "  Failed to remove task: $($_.Exception.Message)" -ForegroundColor Red
             }
         }
         Write-Host "  Removed $taskRemoved task(s)." -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "  No tasks found (already clean)." -ForegroundColor Gray
     }
-} catch {
+}
+catch {
     Write-Host "  Warning: $($_.Exception.Message)" -ForegroundColor Yellow
 }
 
@@ -166,12 +176,14 @@ if ($restart -eq 'y') {
     Write-Host "Restarting computer..." -ForegroundColor Green
     try {
         Restart-Computer -Force
-    } catch {
+    }
+    catch {
         Write-Host "Error restarting computer: $($Error[0].Exception.Message)" -ForegroundColor Red
         Write-Host "Please restart manually." -ForegroundColor Yellow
         Start-Sleep -Seconds 3
     }
-} else {
+}
+else {
     Write-Host "Restart cancelled. Please restart manually when ready." -ForegroundColor Yellow
     Write-Host ""
     Write-Host "Log file saved to script folder (EntraCleanup_*.log)" -ForegroundColor Gray
