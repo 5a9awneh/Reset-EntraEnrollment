@@ -39,6 +39,12 @@ flowchart TD
     J --> K{"Restart now?\n5-second prompt — defaults to No"}
     K -- Yes --> L([Restarting...])
     K -- No --> M([Done — restart manually before re-enrolling])
+    classDef success fill:#2d6a2d,color:#fff,stroke:#1a3d1a
+    classDef failure fill:#8b1a1a,color:#fff,stroke:#5a0d0d
+    classDef warning fill:#7a5500,color:#fff,stroke:#4d3600
+    class L,M success
+    class C failure
+    class E warning
 ```
 
 ---
