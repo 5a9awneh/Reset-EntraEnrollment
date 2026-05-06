@@ -6,6 +6,41 @@
 
 Removes stale Entra ID / Azure AD enrollment artifacts from a Windows device. Useful when a device shows as enrolled but re-enrollment fails, or when decommissioning a device that needs to be re-provisioned.
 
+**`dsregcmd /status` — stale enrollment *(representative)* — device appears joined but re-enrollment fails:**
+
+```
++----------------------------------------------------------------------+
+| Device State                                                         |
++----------------------------------------------------------------------+
+
+             AzureAdJoined : YES
+          EnterpriseJoined : NO
+              DomainJoined : NO
+
++----------------------------------------------------------------------+
+| User State                                                           |
++----------------------------------------------------------------------+
+
+       WorkplaceJoined : YES
+         WamDefaultSet : NO
+```
+
+```mermaid
+flowchart TD
+    A([Start]) --> B{Running as Administrator?}
+    B -- No --> C([Exit — re-run via RUN.bat])
+    B -- Yes --> D{Type YES to confirm?}
+    D -- No --> E([Aborted — no changes made])
+    D -- Yes --> F["[1/5] Log current dsregcmd /status"]
+    F --> G["[2/5] dsregcmd /leave — disjoin from Entra ID"]
+    G --> H["[3/5] Remove stale Enrollments registry subkeys"]
+    H --> I["[4/5] Remove EnterpriseResourceManager registry entries"]
+    I --> J["[5/5] Unregister EnterpriseMgmt scheduled tasks"]
+    J --> K{"Restart now?\n5-second prompt — defaults to No"}
+    K -- Yes --> L([Restarting...])
+    K -- No --> M([Done — restart manually before re-enrolling])
+```
+
 ---
 
 ## ⚙️ Requirements
